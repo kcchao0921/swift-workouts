@@ -5,14 +5,23 @@ enum CharacterActionError: ErrorProtocol {
 	case deadBody(attacker: Character)
 }
 
-enum AnsiColor : String {
-	case black = "30"
-	case red = "31"
-	case green = "32"
-	case yellow = "33"
+enum AnsiColor: Int {
+	case black = 30
+	case red = 31
+	case green = 32
+	case yellow = 33
+	case blue = 34
+	case purple = 35
+	case cyan = 36
+	case white = 37
 
-	func paint(_ string: String) ->String {
-		return "\u{001B}[1;" + self.rawValue + "m" + string + "\u{001B}[0m"
+	func paint(_ string: String) -> String {
+		return "\u{001B}[1;" + String(self.rawValue) + "m" + string + "\u{001B}[0m"
+	}
+
+	//generic function
+	func paintBackground<T>(_ string: T) -> String {
+		return "\u{001B}[1;\(self.rawValue + 10)m\(string)\u{001B}[0m"
 	}
 }
 
@@ -65,7 +74,7 @@ class Character {
 		//nested function
 		func normalAttack(_ attaker: Character, _ target: Character) {
 			if (weapon != nil) {
-				print("\(AnsiColor.green.paint(name)) uses \(weapon.name) to attack \(AnsiColor.red.paint(target.name)).")
+				print("\(AnsiColor.cyan.paint(name)) uses \(AnsiColor.green.paintBackground(weapon.name)) to attack \(AnsiColor.red.paint(target.name)).")
 			} else {
 				print("\(AnsiColor.green.paint(name)) attacks \(AnsiColor.red.paint(target.name)).")
 			}

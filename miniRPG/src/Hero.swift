@@ -10,7 +10,7 @@ class Hero: Character {
 
 		didSet {
 			if hp > 0 {
-				print("\(name) remains \(hp) hp.")
+				print("\(name) lost \(AnsiColor.red.paintBackground(oldValue - hp)) hp and remains \(hp) hp.")
 			}
 		}
 	}
@@ -22,14 +22,5 @@ class Hero: Character {
 
 	deinit {
 		print("\(name) is dead. The adventure is over.")
-	}
-
-	override func attackedBy(_ attacker: Character) -> Int {
-			let lostHp = super.attackedBy(attacker)
-			if lostHp > 0 {
-				print("\(name) lost \(lostHp) hp.")
-			}
-
-			return lostHp
 	}
 }

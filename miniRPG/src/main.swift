@@ -1,5 +1,3 @@
-import Glibc
-
 func getUserChoice(max: Int) -> (Int, Int) {
 	var method = 0
 	var target = 0
@@ -45,6 +43,7 @@ extension Hero {
 				target -= 1
 
 				if method == 1 {
+					//use custom operator
 					try self => monsters[target]
 				} else {
 					try attack(monsters[target], way: magicAttack)
@@ -68,14 +67,13 @@ extension Hero {
 	}
 }
 
-random()
 //optional variable
 var hero: Hero? = Hero("Arthur", hp: 100, strength: 5, Weapon(name: "Excalibur", strength: 100))
 
 //array
 var monsters = [
 	Monster("Slime", hp: 2, strength: 2),
-	Monster("Goblin", hp: 5, strength: 5, Weapon(name: "club", strength: 2)),
+	Monster("Goblin", hp: 5, strength: 3, Weapon(name: "club", strength: 2)),
 	Monster("Chimera", hp: 10, strength: 7),
 	Monster("Death Lancer", hp: 105, strength: 10, Weapon(name: "spear", strength: 5))
 ]

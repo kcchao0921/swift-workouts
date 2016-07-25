@@ -11,7 +11,7 @@ class Monster: Character {
 	override func attackedBy(_ attacker: Character) -> Int {
 		let lostHp = super.attackedBy(attacker)
 		if lostHp > 0 {
-			print("\(name) is bleeding and lost \(lostHp) hp.")
+			print("\(name) is bleeding and lost \(AnsiColor.red.paintBackground(lostHp)) hp.")
 		}
 
 		return lostHp
