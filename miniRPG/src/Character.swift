@@ -66,8 +66,14 @@ class Character {
 		}
 	}
 
+	//this funciton throws an error
 	func attack(_ target: Character, way: AttackFunc? = nil) throws {
+		/*early exit
+		  If the guard statement’s condition is met, code execution continues after the guard statement’s closing brace.
+		  If that condition is not met, the code inside the else branch is executed.
+		*/
 		guard target.hp > 0 else {
+			//throws error
 			throw CharacterActionError.deadBody(attacker: self)
 		}
 
