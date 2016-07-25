@@ -72,9 +72,9 @@ var hero: Hero? = Hero("Arthur", hp: 100, strength: 5, Weapon(name: "Excalibur",
 
 //array
 var monsters = [
-	Monster("Slime", hp: 2, strength: 2),
-	Monster("Goblin", hp: 5, strength: 3, Weapon(name: "club", strength: 2)),
-	Monster("Chimera", hp: 10, strength: 7),
+	Monster("Slime", hp: 2, strength: 5),
+	Monster("Goblin", hp: 5, strength: 5, Weapon(name: "club", strength: 2)),
+	Monster("Chimera", hp: 10, strength: 10),
 	Monster("Death Lancer", hp: 105, strength: 10, Weapon(name: "spear", strength: 5))
 ]
 

@@ -1,3 +1,5 @@
+import Foundation
+
 typealias AttackFunc = (Character, Character) -> ()	//function type
 
 //define error
@@ -98,7 +100,12 @@ class Character {
 			return 0
 		}
 
-		let lostHp = attacker.power
+		let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+		srand(time)
+		var lostHp = attacker.power
+		if(attacker.power > 4) {
+			lostHp += random() % (attacker.power / 2) - attacker.power / 4
+		}
 		hp -= lostHp
 
 		return lostHp
