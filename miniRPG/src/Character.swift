@@ -15,8 +15,8 @@ enum AnsiColor: Int {
 	case cyan = 36
 	case white = 37
 
-	func paint(_ string: String) -> String {
-		return "\u{001B}[1;" + String(self.rawValue) + "m" + string + "\u{001B}[0m"
+	func paint<T>(_ string: T) -> String {
+		return "\u{001B}[1;\(self.rawValue)m\(string)\u{001B}[0m"
 	}
 
 	//generic function
